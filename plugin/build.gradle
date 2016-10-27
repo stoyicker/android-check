@@ -68,5 +68,5 @@ project.ext {
     }
 }
 
-apply from: rootProject.file('gradle/gradle-publish.gradle')
-apply from: rootProject.file('gradle/publish.gradle')
+apply from: project.file('gradle/gradle-publish.gradle')
+apply from: project.file('gradle/publish.gradle')
