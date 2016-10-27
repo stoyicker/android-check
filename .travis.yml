@@ -7,4 +7,4 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 script:
-  - ./gradlew clean :sample:build clean :plugin:assemble clean :plugin:check
+  - ./gradlew clean :plugin:assemble clean :plugin:check
