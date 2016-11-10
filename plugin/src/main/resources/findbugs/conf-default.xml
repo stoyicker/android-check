@@ -9,7 +9,6 @@
     <Match>
         <Class name="~.*\.R\$.*" />
     </Match>
-
     <!--
     There are a lot of bean classes in Android projects. For example, there
     may be bean classes used to write/parse JSON via reflection or work with
@@ -29,13 +28,5 @@
     </Match>
     <Match>
         <Bug category="UWF_UNWRITTEN_PUBLIC_OR_PROTECTED_FIELD" />
-    </Match>
-
-    <!-- Ignored just because they are not so critical -->
-    <Match>
-        <Bug category="SF_SWITCH_FALLTHROUGH" />
-    </Match>
-    <Match>
-        <Bug category="SF_SWITCH_NO_DEFAULT" />
     </Match>
 </FindBugsFilter>
