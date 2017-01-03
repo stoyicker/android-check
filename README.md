@@ -19,7 +19,7 @@ Modifications in `<project_dir>/build.gradle`:
 
 ```
 buildscript {
-    repositories { jcenter() }
+    repositories { maven { url "http://dl.bintray.com/stoyicker-org/android-check-2" } }
     dependencies {
         ...
         classpath 'org.stoyicker.android-check:plugin:<version>'
