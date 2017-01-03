@@ -12,6 +12,6 @@ script:
 after_success:
   - |
       if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$(git rev-parse --abbrev-ref HEAD)" = "master" ]; then
-        echo "CI on master succeded. Executing release task..."
-        ./gradlew bintrayUpload
+        echo "CI on master succeded. Executing release tasks..."
+        ./gradlew bintrayUpload publishPlugins
       fi
