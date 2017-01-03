@@ -40,7 +40,7 @@ abstract class CommonCheck<Config extends CommonConfig> {
         target.task(
                 [group      : 'verification',
                  description: taskDescription],
-                taskName) << {
+                taskName).doLast {
             CheckExtension extension = target.extensions.findByType(CheckExtension)
             Config config = getConfig(extension)
 
