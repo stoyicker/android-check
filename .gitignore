@@ -1,5 +1,6 @@
 *.properties
 !gradle-wrapper.properties
+!org.stoyicker.android-check.properties
 .gradle
 build
 .idea
