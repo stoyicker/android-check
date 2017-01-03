@@ -13,6 +13,8 @@ Build status
 Usage
 -----
 
+[ ![Download](https://api.bintray.com/packages/stoyicker-org/android-check-2/org.stoyicker.android-check/images/download.svg) ](https://bintray.com/stoyicker-org/android-check-2/org.stoyicker.android-check/_latestVersion)
+
 Modifications in `<project_dir>/build.gradle`:
 
 ```
@@ -20,7 +22,7 @@ buildscript {
     repositories { jcenter() }
     dependencies {
         ...
-        classpath 'io.github.stoyicker:check:2.0.0'
+        classpath 'org.stoyicker.android-check:plugin:<version>'
         ...
     }
 }
