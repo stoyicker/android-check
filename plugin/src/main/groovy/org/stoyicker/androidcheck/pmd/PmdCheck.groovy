@@ -1,5 +1,6 @@
 package org.stoyicker.androidcheck.pmd
 
+import net.sourceforge.pmd.ant.Formatter
 import groovy.util.slurpersupport.GPathResult
 import org.stoyicker.androidcheck.CheckExtension
 import org.stoyicker.androidcheck.CommonCheck

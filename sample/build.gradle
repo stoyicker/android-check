@@ -1,11 +1,11 @@
 buildscript {
-    repositories { jcenter(); mavenLocal() }
+    repositories { jcenter(); mavenLocal(); maven { url "http://dl.bintray.com/stoyicker-org/android-check-2" } }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.0'
-//        classpath 'io.github.stoyicker:check:2.0.0'
+        classpath 'org.stoyicker.android-check:plugin:2.62'
     }
 }
 
 allprojects {
-    repositories { jcenter(); mavenLocal() }
+    repositories { jcenter(); mavenLocal(); maven { url "http://dl.bintray.com/stoyicker-org/android-check-2" }}
 }

@@ -13,14 +13,16 @@ Build status
 Usage
 -----
 
+[ ![Download](https://api.bintray.com/packages/stoyicker-org/android-check-2/org.stoyicker.android-check/images/download.svg) ](https://bintray.com/stoyicker-org/android-check-2/org.stoyicker.android-check/_latestVersion)
+
 Modifications in `<project_dir>/build.gradle`:
 
 ```
 buildscript {
-    repositories { jcenter() }
+    repositories { maven { url "http://dl.bintray.com/stoyicker-org/android-check-2" } }
     dependencies {
         ...
-        classpath 'io.github.stoyicker:check:2.0.0'
+        classpath 'org.stoyicker.android-check:plugin:<version>'
         ...
     }
 }
@@ -46,8 +48,8 @@ The default one.
 check {
   // Do absolutely nothing, default: false
   skip true/false
-  // Fails build if a violation is found, default: false
-  abortOnError true/false
+  // Fails build if a violation is found, default: true
+  abortOnError true/false. Ignored if all per-tool confs are set to abortOnError false (see below)
   // Checkstyle configuration
   checkstyle {
     // Completely skip CheckStyle, default: false
