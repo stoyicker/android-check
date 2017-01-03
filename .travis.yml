@@ -1,5 +1,7 @@
 language: java
 jdk: oraclejdk8
+before_install:
+  - printf "bintray.user=$BINTRAY_USER\nbintray.key=$BINTRAY_KEY\ngradle.publish.key=$GRADLE_PUBLISH_KEY\ngradle.publish.secret=$GRADLE_PUBLISH_SECRET\n" > gradle.properties
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -11,7 +13,7 @@ script:
   - ./gradlew clean :plugin:assemble clean :plugin:check
 after_success:
   - |
-      if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$(git rev-parse --abbrev-ref HEAD)" = "master" ]; then
+      if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then
         echo "CI on master succeded. Executing release tasks..."
         ./gradlew bintrayUpload publishPlugins
       fi

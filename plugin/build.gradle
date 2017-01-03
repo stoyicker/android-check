@@ -15,7 +15,7 @@ dependencies {
     compile 'net.sourceforge.pmd:pmd-java:5.5.2'
 }
 
-final def masterCommitCount = 'git rev-list --count origin/master'.execute([], project.rootDir).text.trim()
+final def masterCommitCount = Integer.parseInt('git rev-list --count origin/master'.execute([], project.rootDir).text.trim()) + 62
 
 project.ext {
     plugin = 'org.stoyicker.android-check'
@@ -23,7 +23,7 @@ project.ext {
     description = 'Static code analysis plugin for Android projects.'
     groupId = 'org.stoyicker.android-check'
     artifactId = 'plugin'
-    version = "2.$masterCommitCount"
+    version = "2.$masterCommitCount.1"
     website = 'https://github.com/stoyicker/android-check-2'
     scm = 'https://github.com/stoyicker/android-check-2'
     tags = ['android', 'plugin', 'check']

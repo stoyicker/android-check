@@ -15,18 +15,7 @@ Usage
 
 [ ![Download](https://api.bintray.com/packages/stoyicker-org/android-check-2/org.stoyicker.android-check/images/download.svg) ](https://bintray.com/stoyicker-org/android-check-2/org.stoyicker.android-check/_latestVersion)
 
-Modifications in `<project_dir>/build.gradle`:
-
-```
-buildscript {
-    repositories { maven { url "http://dl.bintray.com/stoyicker-org/android-check-2" } }
-    dependencies {
-        ...
-        classpath 'org.stoyicker.android-check:plugin:<version>'
-        ...
-    }
-}
-```
+This plugin is available in the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check) and in jCenter.
 
 Modifications in `<project_dir>/<module_name>/build.gradle`:
 
