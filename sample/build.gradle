@@ -2,7 +2,7 @@ buildscript {
     repositories { jcenter(); mavenLocal() }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.0'
-//        classpath 'io.github.stoyicker:check:2.0.0'
+        classpath 'org.stoyicker.android-check:plugin:2.62'
     }
 }
 
