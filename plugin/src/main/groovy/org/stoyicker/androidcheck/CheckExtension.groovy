@@ -35,7 +35,7 @@ class CheckExtension {
 
     void skip(boolean skip) { this.skip = skip }
 
-    boolean abortOnError = false
+    boolean abortOnError = true
 
     void abortOnError(boolean abortOnError) { this.abortOnError = abortOnError }
 

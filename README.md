@@ -48,8 +48,8 @@ The default one.
 check {
   // Do absolutely nothing, default: false
   skip true/false
-  // Fails build if a violation is found, default: false
-  abortOnError true/false
+  // Fails build if a violation is found, default: true
+  abortOnError true/false. Ignored if all per-tool confs are set to abortOnError false (see below)
   // Checkstyle configuration
   checkstyle {
     // Completely skip CheckStyle, default: false

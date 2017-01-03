@@ -64,7 +64,7 @@ abstract class CommonCheck<Config extends CommonConfig> {
                 if (errorCount) {
                     String errorMessage = getErrorMessage(errorCount, htmlReportFile)
                     if (abortOnError) {
-                        Desktop.browse(new URI(htmlReportFile))
+                        Desktop.getDesktop().browse(new URI("file://"+htmlReportFile.absolutePath))
                         throw new GradleException(errorMessage)
                     } else {
                         target.logger.warn errorMessage
