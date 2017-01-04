@@ -15,7 +15,7 @@ Usage
 
 [ ![Download](https://api.bintray.com/packages/stoyicker-org/android-check-2/org.stoyicker.android-check/images/download.svg) ](https://bintray.com/stoyicker-org/android-check-2/org.stoyicker.android-check/_latestVersion)
 
-This plugin is available in the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check) and in jCenter.
+This plugin is available in the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check) and in jCenter. It attaches itself to the `check` task.
 
 Configuration
 -------------
