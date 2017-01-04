@@ -73,7 +73,7 @@ abstract class CommonCheck<Config extends CommonConfig> {
             }
         }
 
-        target.tasks.getByName('check').dependsOn taskName
+        target.rootProject.tasks.getByName('check').dependsOn taskName
         dependencies.each { target.tasks.getByName(taskName).dependsOn it }
     }
 
