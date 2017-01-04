@@ -1,7 +1,7 @@
 Android Check 2
 ===============
 
-Static code analysis plugin for Android project.
+Static code analysis plugin for Android projects.
 This is a fork of [the original android-check plugin][1], which implements a really useful concept, but unfortunately seems abandoned.
 
 Build status
@@ -16,12 +16,6 @@ Usage
 [ ![Download](https://api.bintray.com/packages/stoyicker-org/android-check-2/org.stoyicker.android-check/images/download.svg) ](https://bintray.com/stoyicker-org/android-check-2/org.stoyicker.android-check/_latestVersion)
 
 This plugin is available in the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check) and in jCenter.
-
-Modifications in `<project_dir>/<module_name>/build.gradle`:
-
-```
-apply plugin: 'org.stoyicker.android-check'
-```
 
 Configuration
 -------------

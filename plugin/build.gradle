@@ -15,7 +15,7 @@ dependencies {
     compile 'net.sourceforge.pmd:pmd-java:5.5.2'
 }
 
-final def masterCommitCount = Integer.parseInt('git rev-list --count origin/master'.execute([], project.rootDir).text.trim()) + 62
+final def masterCommitCount = Integer.parseInt('git rev-list --count origin/master'.execute([], project.rootDir).text.trim() ?: "0") + 62
 
 project.ext {
     plugin = 'org.stoyicker.android-check'
