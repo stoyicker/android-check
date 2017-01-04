@@ -17,12 +17,6 @@ Usage
 
 This plugin is available in the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check) and in jCenter.
 
-Modifications in `<project_dir>/<module_name>/build.gradle`:
-
-```
-apply plugin: 'org.stoyicker.android-check'
-```
-
 Configuration
 -------------
 
