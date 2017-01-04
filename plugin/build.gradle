@@ -17,7 +17,7 @@ dependencies {
 
 def masterCommitCount = 'git rev-list --count origin/master'.execute([], project.rootDir).text.trim()
 if (masterCommitCount == "") { masterCommitCount = "0" }
-masterCommitCount = Integer.parseInt(masterCommitCount)
+masterCommitCount = Integer.parseInt(masterCommitCount) + 62
 
 project.ext {
     plugin = 'org.stoyicker.android-check'
