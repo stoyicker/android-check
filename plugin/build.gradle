@@ -25,7 +25,7 @@ project.ext {
     description = 'Static code analysis plugin for Android projects.'
     groupId = 'org.stoyicker.android-check'
     artifactId = 'plugin'
-    version = "2.$masterCommitCount.1"
+    version = "2.$masterCommitCount"
     website = 'https://github.com/stoyicker/android-check-2'
     scm = 'https://github.com/stoyicker/android-check-2'
     tags = ['android', 'plugin', 'check']
