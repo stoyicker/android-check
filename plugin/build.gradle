@@ -15,7 +15,7 @@ dependencies {
     compile 'net.sourceforge.pmd:pmd-java:5.5.2'
 }
 
-def masterCommitCount = 'git rev-list --count origin/master'.execute([], project.rootDir).text.trim()
+def masterCommitCount = 'git rev-list --count HEAD'.execute([], project.rootDir).text.trim()
 if (masterCommitCount == "") { masterCommitCount = "0" }
 masterCommitCount = Integer.parseInt(masterCommitCount) + 62
 
