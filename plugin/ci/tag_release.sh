@@ -5,7 +5,7 @@ BRANCH_NAME=${TRAVIS_BRANCH}
 ARTIFACT_VERSION="2."$(($(git rev-list --count HEAD)+62))
 
 tagAndCreateGitHubRelease() {
-    git fetch --unshallow --tags
+    git fetch --tags
     LAST_TAG=$(git describe --tags --abbrev=0)
     THIS_RELEASE=$(git rev-parse --short ${BRANCH_NAME})
     local IFS=$'\n'
