@@ -26,4 +26,5 @@ after_success:
         echo "CI on master succeded. Executing release tasks..."
         git fetch --unshallow
         ./gradlew bintrayUpload publishPlugins
+        ./plugin/ci/release.sh
       fi
