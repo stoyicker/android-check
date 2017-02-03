@@ -25,6 +25,5 @@ after_success:
       if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then
         echo "CI on master succeded. Executing release tasks..."
         git fetch --unshallow
-        git merge
         ./gradlew bintrayUpload publishPlugins
       fi
