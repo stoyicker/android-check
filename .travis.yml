@@ -1,5 +1,8 @@
 language: java
 jdk: oraclejdk8
+branches:
+  except:
+    - /^[0-9]/ # Workaround to not to trigger Travis with tags - https://github.com/travis-ci/travis-ci/issues/1532
 before_install:
   - printf "bintray.user=$BINTRAY_USER\nbintray.key=$BINTRAY_KEY\ngradle.publish.key=$GRADLE_PUBLISH_KEY\ngradle.publish.secret=$GRADLE_PUBLISH_SECRET\n" > gradle.properties
 before_cache:
