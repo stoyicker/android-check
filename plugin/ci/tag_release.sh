@@ -31,7 +31,7 @@ tagAndCreateGitHubRelease() {
         --header "Content-Type: application/json; charset=utf-8" \
         --request POST \
         --data "${BODY}" \
-        https://github.schibsted.io/api/v3/repos/spt-identity/login-android-sdk/releases
+        https://api.github.com/repos/stoyicker/android-check-2/releases
 }
 
 tagAndCreateGitHubRelease
