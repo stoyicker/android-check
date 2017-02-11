@@ -15,7 +15,7 @@ Usage
 
 [ ![Download](https://api.bintray.com/packages/stoyicker-org/android-check-2/org.stoyicker.android-check/images/download.svg) ](https://bintray.com/stoyicker-org/android-check-2/org.stoyicker.android-check/_latestVersion)
 
-This plugin is available in the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check) (see [#24](https://github.com/stoyicker/android-check-2/issues/24)) and in jCenter. It attaches itself to the `check` task.
+This plugin is available in the [Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check) (see [#24](https://github.com/stoyicker/android-check-2/issues/24)) and in jCenter. It attaches itself to the `check` task if it finds it (that is, you don't use the `plugins` block and you apply either the application or library Android plugins first) - otherwise you'll need to execute the corresponding tasks manually when desired: `androidCheckstyle` for CheckStyle, `androidFindbugs` for FindBugs and `androidPmd` for PMD.
 
 Configuration
 -------------
