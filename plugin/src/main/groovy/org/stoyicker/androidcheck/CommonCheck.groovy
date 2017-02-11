@@ -64,7 +64,13 @@ abstract class CommonCheck<Config extends CommonConfig> {
                 if (errorCount) {
                     String errorMessage = getErrorMessage(errorCount, htmlReportFile)
                     if (abortOnError) {
-                        Desktop.getDesktop().browse(new URI("file://"+htmlReportFile.absolutePath))
+                        if (Desktop.isDesktopSupported()) {
+                            Desktop.getDesktop().browse(new URI("file://"+htmlReportFile.absolutePath))
+                        } else {
+                            target.logger.warn "Your system does not support java.awt.Desktop. " +
+                            "Not opening report automatically. " +
+                            "See https://github.com/stoyicker/android-check-2/issues/42"
+                        }
                         throw new GradleException(errorMessage)
                     } else {
                         target.logger.warn errorMessage
