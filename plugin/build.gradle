@@ -28,7 +28,7 @@ project.ext {
     version = "2.$masterCommitCount"
     website = 'https://github.com/stoyicker/android-check-2'
     scm = 'https://github.com/stoyicker/android-check-2'
-    tags = ['android', 'plugin', 'check']
+    tags = ['android', 'plugin', 'check', 'checkstyle', 'findbugs', 'pmd']
     pom = {
         licenses {
             license {
