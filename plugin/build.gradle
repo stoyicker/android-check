@@ -12,7 +12,7 @@ dependencies {
     // FindBugs
     compile 'com.google.code.findbugs:findbugs:3.0.1'
     // PMD
-    compile 'net.sourceforge.pmd:pmd-java:5.5.3'
+    compile 'net.sourceforge.pmd:pmd-java:5.5.4'
 }
 
 def masterCommitCount = 'git rev-list --count HEAD'.execute([], project.rootDir).text.trim()
