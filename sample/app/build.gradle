@@ -29,19 +29,13 @@ dependencies {
 }
 
 check {
-    abortOnError true
-
-    checkstyle {
-        abortOnError true
-    }
+    abortOnError false
 
     findbugs {
-        abortOnError true
         reportXML new File(project.buildDir, 'reports/findbugs/findbugs.xml')
     }
 
     pmd {
-        abortOnError true
         reportHTML new File(project.buildDir, 'reports/pmd/pmd.html')
     }
 }
