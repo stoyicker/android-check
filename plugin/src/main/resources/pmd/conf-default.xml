@@ -120,6 +120,7 @@
     <rule ref="rulesets/java/unnecessary.xml">
         <exclude name="UselessOverridingMethod" />
         <exclude name="UselessParentheses" />
+        <exclude name="UnnecessaryModifier" />
     </rule>
 
     <rule ref="rulesets/java/unusedcode.xml" />
