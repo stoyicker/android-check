@@ -9,6 +9,11 @@ buildscript {
     }
 }
 
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+}
+
 allprojects {
     repositories { jcenter() }
 }
