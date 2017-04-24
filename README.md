@@ -47,7 +47,7 @@ check {
     // Output file for XML reports, default: new File(project.buildDir, 'outputs/checkstyle/checkstyle.xml')
     reportXML new File(project.buildDir, 'path/where/you/want/checkstyle.xml')
 
-    // Output file for HTML reports, default: not generated
+    // Output file for HTML reports, default: new File(project.buildDir, 'outputs/checkstyle/checkstyle.html')
     reportHTML new File(project.buildDir, 'path/where/you/want/checkstyle.html')
   }
   // FindBugs configuration
@@ -59,6 +59,9 @@ check {
 
     // Output file for XML reports, default: new File(project.buildDir, 'outputs/findbugs/findbugs.xml')
     reportXML new File(project.buildDir, 'path/where/you/want/findbugs.xml')
+    
+    // Output file for HTML reports, default: new File(project.buildDir, 'outputs/findbugs/findbugs.html')
+    reportHTML new File(project.buildDir, 'path/where/you/want/findbugs.html')
   }
   // PMD configuration
   pmd {
@@ -69,6 +72,9 @@ check {
 
     // Output file for XML reports, default: new File(project.buildDir, 'outputs/pmd/pmd.xml')
     reportXML new File(project.buildDir, 'path/where/you/want/pmd.xml')
+    
+    // Output file for HTML reports, default: new File(project.buildDir, 'outputs/pmd/pmd.html')
+    reportHTML new File(project.buildDir, 'path/where/you/want/pmd.html')
   }
 }
 ```
