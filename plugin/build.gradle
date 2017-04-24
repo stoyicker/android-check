@@ -17,6 +17,7 @@ dependencies {
 
 def masterCommitCount = 'git rev-list --count HEAD'.execute([], project.rootDir).text.trim()
 if (masterCommitCount == "") { masterCommitCount = "0" }
+if (masterCommitCount == "50") { masterCommitCount = "99999" } // Dirty hack to make mavenLocal gain prio on Travis
 masterCommitCount = Integer.parseInt(masterCommitCount) + 62
 
 project.ext {
