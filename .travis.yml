@@ -23,7 +23,7 @@ before_script:
       fi
   - cd sample
 script:
-  - ../gradlew check --stacktrace
+  - ../gradlew check --refresh-dependencies --stacktrace
 after_success:
   - cd ..
   - |
