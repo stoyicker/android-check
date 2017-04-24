@@ -1,122 +1,156 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="ruleset"
-         xmlns="http://pmd.sf.net/ruleset/1.0.0"
-         xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd"
-         xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd">
 
-    <description>POM rule set file</description>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
-    <rule ref="rulesets/java/android.xml"/>
+    <xsl:output indent="yes" method="html" />
+    <xsl:decimal-format decimal-separator="." grouping-separator="," />
 
-    <rule ref="rulesets/java/basic.xml">
-        <exclude name="CollapsibleIfStatements"/>
-    </rule>
+    <xsl:key name="files" match="file" use="@name" />
 
-    <rule ref="rulesets/java/braces.xml">
-        <exclude name="IfStmtsMustUseBraces"/>
-        <exclude name="IfElseStmtsMustUseBraces"/>
-    </rule>
+    <xsl:template match="pmd">
+        <html>
+            <head>
+                <title>PMD Audit</title>
+                <style type="text/css">
+                    body {
+                    margin-left: 10;
+                    margin-right: 10;
+                    font:normal 80% arial,helvetica,sanserif;
+                    background-color:#ffffff;
+                    color:#000000;
+                    }
+                    .a td { background: #efefef }
+                    .b td { background: #ffffff }
+                    th, td {
+                    text-align: left;
+                    vertical-align: top;
+                    }
+                    th {
+                    font-weight:bold;
+                    background: #ccc;
+                    color: black;
+                    }
+                    table, th, td {
+                    font-size:100%;
+                    border: none
+                    }
+                    table.log tr td, tr th { }
+                    h3 {
+                    font-size:100%;
+                    font-weight:bold;
+                    background: #525D76;
+                    color: white;
+                    text-decoration: none;
+                    padding: 5px;
+                    margin-right: 2px;
+                    margin-left: 2px;
+                    margin-bottom: 0;
+                    }
+                </style>
+            </head>
+            <body>
+                <hr align="left" size="1" width="100%" />
 
-    <rule ref="rulesets/java/clone.xml"/>
+                <xsl:apply-templates mode="summary" select="." />
 
-    <rule ref="rulesets/java/codesize.xml">
-        <exclude name="StdCyclomaticComplexity"/>
-        <exclude name="ModifiedCyclomaticComplexity"/>
-    </rule>
+                <hr align="left" size="1" width="100%" />
 
-    <rule ref="rulesets/java/codesize.xml/CyclomaticComplexity">
-        <properties>
-            <property name="reportLevel" value="20"/>
-        </properties>
-    </rule>
+                <xsl:apply-templates mode="filelist" select="." />
 
-    <rule ref="rulesets/java/codesize.xml/TooManyMethods">
-        <properties>
-            <property name="maxmethods" value="25"/>
-        </properties>
-    </rule>
+                <hr align="left" size="1" width="100%" />
 
-    <rule ref="rulesets/java/comments.xml">
-        <exclude name="CommentRequired"/>
-        <exclude name="CommentSize"/>
-    </rule>
+                <xsl:apply-templates
+                        select="file[@name and generate-id(.) = generate-id(key('files', @name))]" />
 
-    <rule ref="rulesets/java/coupling.xml">
-        <exclude name="LooseCoupling"/>
-        <exclude name="ExcessiveImports"/>
-        <exclude name="LawOfDemeter"/>
-        <exclude name="LoosePackageCoupling"/>
-    </rule>
+                <hr align="left" size="1" width="100%" />
+            </body>
+        </html>
+    </xsl:template>
 
-    <rule ref="rulesets/java/design.xml">
-        <exclude name="AvoidReassigningParameters"/>
-        <!-- if (x != y) { short code block } else { long code block } -->
-        <exclude name="ConfusingTernary"/>
-        <exclude name="SwitchStmtsShouldHaveDefault"/>
-        <!-- Android listeners contain a lot of such switch statements -->
-        <exclude name="TooFewBranchesForASwitchStatement"/>
-        <exclude name="ImmutableField"/>
-        <exclude name="GodClass"/>
-        <exclude name="SingularField"/>
-        <exclude name="UncommentedEmptyMethodBody"/>
-        <exclude name="EmptyMethodInAbstractClassShouldBeAbstract"/>
-        <exclude name="AccessorClassGeneration"/>
-    </rule>
+    <xsl:template match="pmd" mode="filelist">
+        <h3>Files</h3>
+        <table border="0" cellpadding="5" cellspacing="2" class="log" width="100%">
+            <tr>
+                <th>Name</th>
+                <th>Violations</th>
+            </tr>
+            <xsl:for-each
+                    select="file[@name and generate-id(.) = generate-id(key('files', @name))]">
+                <xsl:sort data-type="number" order="descending"
+                          select="count(key('files', @name)/violation)" />
+                <xsl:variable name="violationCount" select="count(violation)" />
+                <tr>
+                    <xsl:call-template name="alternated-row" />
+                    <td>
+                        <a href="#f-{@name}">
+                            <xsl:value-of select="@name" />
+                        </a>
+                    </td>
+                    <td>
+                        <xsl:value-of select="$violationCount" />
+                    </td>
+                </tr>
+            </xsl:for-each>
+        </table>
+    </xsl:template>
 
-    <rule ref="rulesets/java/empty.xml"/>
+    <xsl:template match="file">
+        <a name="f-{@name}" />
+        <h3>File <xsl:value-of select="@name" /></h3>
+        <table border="0" cellpadding="5" cellspacing="2" class="log" width="100%">
+            <tr>
+                <th>Violation Description</th>
+                <th>Location</th>
+            </tr>
+            <xsl:for-each select="key('files', @name)/violation">
+                <xsl:sort data-type="number" order="ascending" select="@beginline" />
+                <tr>
+                    <xsl:call-template name="alternated-row" />
+                    <td>
+                        <a>
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="@externalInfoUrl" />
+                            </xsl:attribute>
+                            <xsl:value-of select="node()" />
+                        </a>
+                    </td>
+                    <td>
+                        <xsl:value-of select="@beginline" />:<xsl:value-of select="@begincolumn" />
+                        -
+                        <xsl:value-of select="@endline" />:<xsl:value-of select="@endcolumn" />
+                    </td>
+                </tr>
+            </xsl:for-each>
+        </table>
+    </xsl:template>
 
-    <rule ref="rulesets/java/finalizers.xml"/>
+    <xsl:template match="pmd" mode="summary">
+        <h3>Summary</h3>
+        <xsl:variable name="fileCount"
+                      select="count(file[@name and generate-id(.) = generate-id(key('files', @name))])" />
+        <xsl:variable name="violationCount" select="count(file/violation)" />
+        <table border="0" cellpadding="5" cellspacing="2" class="log" width="100%">
+            <tr>
+                <th>Files</th>
+                <th>Violations</th>
+            </tr>
+            <tr>
+                <xsl:call-template name="alternated-row" />
+                <td>
+                    <xsl:value-of select="$fileCount" />
+                </td>
+                <td>
+                    <xsl:value-of select="$violationCount" />
+                </td>
+            </tr>
+        </table>
+    </xsl:template>
 
-    <rule ref="rulesets/java/imports.xml"/>
+    <xsl:template name="alternated-row">
+        <xsl:attribute name="class">
+            <xsl:if test="position() mod 2 = 1">a</xsl:if>
+            <xsl:if test="position() mod 2 = 0">b</xsl:if>
+        </xsl:attribute>
+    </xsl:template>
 
-    <rule ref="rulesets/java/junit.xml">
-        <exclude name="JUnitTestContainsTooManyAsserts"/>
-    </rule>
-
-    <rule ref="rulesets/java/logging-jakarta-commons.xml">
-        <exclude name="GuardLogStatement"/>
-    </rule>
-
-    <rule ref="rulesets/java/logging-java.xml">
-        <exclude name="GuardLogStatementJavaUtil"/>
-    </rule>
-
-    <rule ref="rulesets/java/migrating.xml"/>
-
-    <rule ref="rulesets/java/naming.xml">
-        <exclude name="AbstractNaming"/>
-        <exclude name="AvoidFieldNameMatchingMethodName"/>
-        <exclude name="LongVariable"/>
-        <exclude name="ShortClassName"/>
-        <exclude name="SuspiciousConstantFieldName"/>
-        <exclude name="ShortVariable"/>
-        <exclude name="VariableNamingConventions"/>
-    </rule>
-
-    <rule ref="rulesets/java/optimizations.xml">
-        <exclude name="AvoidInstantiatingObjectsInLoops"/>
-        <exclude name="LocalVariableCouldBeFinal"/>
-        <exclude name="MethodArgumentCouldBeFinal"/>
-        <exclude name="RedundantFieldInitializer"/>
-    </rule>
-
-    <rule ref="rulesets/java/strictexception.xml">
-        <exclude name="AvoidCatchingGenericException"/>
-    </rule>
-
-    <rule ref="rulesets/java/strings.xml"/>
-
-    <rule ref="rulesets/java/typeresolution.xml">
-        <exclude name="LooseCoupling"/>
-    </rule>
-
-    <rule ref="rulesets/java/unnecessary.xml">
-        <exclude name="UselessOverridingMethod"/>
-        <exclude name="UselessParentheses"/>
-    </rule>
-
-    <rule ref="rulesets/java/unusedcode.xml">
-        <exclude name="UnusedModifier"/>
-    </rule>
-
-</ruleset>
+</xsl:stylesheet>
