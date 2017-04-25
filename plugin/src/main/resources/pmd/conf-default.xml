@@ -37,6 +37,7 @@
     <rule ref="rulesets/java/comments.xml">
         <exclude name="CommentRequired" />
         <exclude name="CommentSize" />
+        <exclude name="CommentDefaultAccessModifierRule" />
     </rule>
 
     <rule ref="rulesets/java/controversial.xml">
