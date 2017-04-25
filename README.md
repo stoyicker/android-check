@@ -26,7 +26,7 @@ The default one.
 
 ### Customized
 
-```
+```java
 // Configuration is completely optional, defaults will be used if not present
 check {
   // Do absolutely nothing, default: false
@@ -78,6 +78,8 @@ check {
   }
 }
 ```
+
+Also, if `abortOnError` is `true`, the browser will open the report for the tool that caused the failure (if your system supports it).
 
 Developed By
 ============
