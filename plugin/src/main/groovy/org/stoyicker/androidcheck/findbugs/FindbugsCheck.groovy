@@ -33,7 +33,7 @@ class FindbugsCheck extends CommonCheck {
         findBugsTask.failOnError = false
 
         Path sourcePath = findBugsTask.createSourcePath()
-        sources.findAll { it.exists() }.each {
+        sources.findAll { it.exists() && it.isDirectory() }.each {
             sourcePath.addFileset(project.ant.fileset(dir: it))
         }
 
