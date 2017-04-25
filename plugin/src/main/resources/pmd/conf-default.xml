@@ -50,6 +50,7 @@
         <exclude name="NullAssignment" />
         <exclude name="OnlyOneReturn" />
         <exclude name="DefaultPackage" />
+        <exclude name="AvoidFinalLocalVariable" />
     </rule>
 
     <rule ref="rulesets/java/coupling.xml">
