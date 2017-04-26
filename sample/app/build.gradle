@@ -31,10 +31,6 @@ dependencies {
 check {
     abortOnError false
 
-    findbugs {
-        reportXML new File(project.buildDir, 'reports/findbugs/findbugs.xml')
-    }
-
     pmd {
         reportHTML new File(project.buildDir, 'reports/pmd/pmd.html')
     }
