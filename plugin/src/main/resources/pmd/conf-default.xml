@@ -51,6 +51,7 @@
         <exclude name="OnlyOneReturn" />
         <exclude name="DefaultPackage" />
         <exclude name="AvoidFinalLocalVariable" />
+        <exclude name="UseConcurrentHashMap" />
     </rule>
 
     <rule ref="rulesets/java/coupling.xml">
