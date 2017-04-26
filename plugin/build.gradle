@@ -3,7 +3,7 @@ apply plugin: 'groovy'
 repositories { jcenter() }
 
 dependencies {
-    compile gradleApi()
+    compileOnly gradleApi()
     // Checkstyle
     compile('com.puppycrawl.tools:checkstyle:7.6.1') {
         // Android Lint also depends on guava, so don't bring it in twice
