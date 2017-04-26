@@ -15,7 +15,7 @@ Usage
 
 [ ![Download](https://api.bintray.com/packages/stoyicker-org/android-check-2/org.stoyicker.android-check/images/download.svg) ](https://bintray.com/stoyicker-org/android-check-2/org.stoyicker.android-check/_latestVersion)
 
-This plugin is available in [the Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check) and jCenter. It attaches itself to the `check` task if it finds it (that is, you don't use the `plugins` block and you apply either the application or library Android plugins first) - otherwise you'll need to execute the corresponding tasks manually when desired: `androidCheckstyle` for CheckStyle, `androidFindbugs` for FindBugs and `androidPmd` for PMD.
+This plugin is available in [the Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check) and jCenter. It attaches itself to the `check` task if it finds it (that is, you don't use the `plugins` block and you apply either the application or library Android plugins first) - otherwise you'll need to execute the corresponding tasks manually when desired: `androidCheckstyle` for CheckStyle, and `androidPmd` for PMD.
 
 Configuration
 -------------
@@ -50,22 +50,9 @@ check {
     // Output file for HTML reports, default: new File(project.buildDir, 'outputs/checkstyle/checkstyle.html')
     reportHTML new File(project.buildDir, 'path/where/you/want/checkstyle.html')
   }
-  // FindBugs configuration
-  findbugs {
-    // Same options as Checkstyle, except for a couple of defaults:
-
-    // Configuration file for CheckStyle, default: <project_path>/config/findbugs.xml, if non-existent then <project_path>/<module_path>/config/findbugs.xml, if non-existent then plugin/src/main/resources/findbugs/conf-default.xml
-    config 'path/to/findbugs.xml'
-
-    // Output file for XML reports, default: new File(project.buildDir, 'outputs/findbugs/findbugs.xml')
-    reportXML new File(project.buildDir, 'path/where/you/want/findbugs.xml')
-    
-    // Output file for HTML reports, default: new File(project.buildDir, 'outputs/findbugs/findbugs.html')
-    reportHTML new File(project.buildDir, 'path/where/you/want/findbugs.html')
-  }
   // PMD configuration
   pmd {
-    // Same options as Checkstyle and FindBugs, except for a couple of defaults:
+    // Same options as Checkstyle, except for a couple of defaults:
 
     // Configuration file for CheckStyle, default: <project_path>/config/pmd.xml, if non-existent then <project_path>/<module_path>/config/pmd.xml, if non-existent then plugin/src/main/resources/pmd/conf-default.xml
     config 'path/to/pmd.xml'
