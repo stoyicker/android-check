@@ -4,6 +4,10 @@ Android Check 2
 Static code analysis plugin for Android projects.
 This is a fork of [the original android-check plugin][1], which implements a really useful concept, but unfortunately seems abandoned.
 
+Who uses this?
+------------
+[![Schibsted Products & Technology](https://i.imgur.com/YwLGGgJ.png)](http://www.schibsted.com/en/About-Schibsted/Schibsted-Products-and-Technology/)
+
 Build status
 ------------
 
