@@ -5,12 +5,12 @@ repositories { jcenter() }
 dependencies {
     compileOnly gradleApi()
     // Checkstyle
-    compile('com.puppycrawl.tools:checkstyle:7.6.1') {
+    compile('com.puppycrawl.tools:checkstyle:7.7') {
         // Android Lint also depends on guava, so don't bring it in twice
         exclude module: 'guava'
     }
     // PMD
-    compile 'net.sourceforge.pmd:pmd-java:5.6.0'
+    compile 'net.sourceforge.pmd:pmd-java:5.6.1'
 }
 
 def masterCommitCount = 'git rev-list --count HEAD'.execute([], project.rootDir).text.trim()
