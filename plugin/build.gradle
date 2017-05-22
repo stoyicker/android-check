@@ -10,7 +10,7 @@ dependencies {
         exclude module: 'guava'
     }
     // PMD
-    compile 'net.sourceforge.pmd:pmd-java:5.6.1'
+    compile 'net.sourceforge.pmd:pmd-java:5.7.0'
 }
 
 def masterCommitCount = 'git rev-list --count HEAD'.execute([], project.rootDir).text.trim()
