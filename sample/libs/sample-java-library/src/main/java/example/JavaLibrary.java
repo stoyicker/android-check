@@ -1,6 +1,6 @@
 package example;
 
-import android.content.Context;
+import java.lang.Object;
 
 public final class JavaLibrary {
 
@@ -8,8 +8,8 @@ public final class JavaLibrary {
         throw new UnsupportedOperationException();
     }
 
-    public static String process(Context context) {
-        return context.getPackageName();
+    public static String process(Object ignored) {
+        return "a result";
     }
 
 }
