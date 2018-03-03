@@ -5,7 +5,7 @@ repositories { jcenter() }
 dependencies {
     compileOnly gradleApi()
     // Checkstyle
-    compile('com.puppycrawl.tools:checkstyle:7.8.1') {
+    compile('com.puppycrawl.tools:checkstyle:8.8') {
         // Android Lint also depends on guava, so don't bring it in twice
         exclude module: 'guava'
     }
