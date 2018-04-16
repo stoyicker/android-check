@@ -20,11 +20,9 @@
         <property name="eachLine" value="true"/>
     </module>
 
-    <module name="SuppressionCommentFilter"/>
-
     <module name="TreeWalker">
 
-        <module name="FileContentsHolder"/>
+        <module name="SuppressionCommentFilter"/>
 
         <module name="OuterTypeFilename"/>
         <module name="IllegalTokenText">
@@ -45,8 +43,9 @@
             <property name="tokens" value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH"/>
         </module>
         <module name="NeedBraces"/>
-        <module name="LeftCurly">
-            <property name="maxLineLength" value="100"/>
+        <module name="LeftCurly"/>
+        <module name="LineLength">
+            <property name="max" value="100"/>
         </module>
         <module name="RightCurly"/>
         <module name="RightCurly">
