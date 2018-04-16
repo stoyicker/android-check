@@ -1,5 +1,6 @@
 package org.stoyicker.androidcheck
 
+import org.gradle.api.GradleException
 import org.gradle.api.Project
 
 import java.util.jar.JarEntry
@@ -24,8 +25,21 @@ final class Utils {
     }
 
     static List<File> getAndroidSources(Project project) {
-        project.android.sourceSets.inject([]) {
-            dirs, sourceSet -> dirs + sourceSet.java.srcDirs
+        if (project.plugins.hasPlugin("com.android.application")
+                || project.plugins.hasPlugin("com.android.library")) {
+            project.android.sourceSets.inject([]) {
+                dirs, sourceSet -> dirs + sourceSet.java.srcDirs
+            }
+        } else if (project.plugins.hasPlugin("java")) {
+            def dirs = new ArrayList<File>()
+            project.sourceSets.forEach {
+                it.getAllJava().getSrcDirs().forEach {
+                    dirs.add(it)
+                }
+            }
+            return dirs
+        } else {
+            throw new GradleException("No Android or Java sources found")
         }
     }
 

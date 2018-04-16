@@ -6,124 +6,72 @@
 
     <description>POM rule set file</description>
 
-    <rule ref="rulesets/java/android.xml" />
-
-    <rule ref="rulesets/java/basic.xml">
-        <exclude name="CollapsibleIfStatements" />
+    <rule ref="category/java/errorprone.xml">
+        <exclude name="AssignmentInOperand" />
+        <exclude name="AvoidLiteralsInIfCondition" />
+        <exclude name="DataflowAnomalyAnalysis" />
     </rule>
-
-    <rule ref="rulesets/java/braces.xml">
+    <rule ref="category/java/bestpractices.xml">
+        <exclude name="LooseCoupling" />
+        <exclude name="GuardLogStatement" />
+        <exclude name="LooseCoupling" />
+    </rule>
+    <rule ref="category/java/multithreading.xml">
+        <exclude name="UseConcurrentHashMap" />
+    </rule>
+    <rule ref="category/java/codestyle.xml">
+        <exclude name="AbstractNaming" />
+        <exclude name="AtLeastOneConstructor" />
+        <exclude name="AvoidPrefixingMethodParameters" />
         <exclude name="IfStmtsMustUseBraces" />
         <exclude name="IfElseStmtsMustUseBraces" />
+        <exclude name="CommentDefaultAccessModifier" />
+        <exclude name="AvoidFinalLocalVariable" />
+        <exclude name="UselessParentheses" />
+        <exclude name="UnnecessaryModifier" />
+        <exclude name="LongVariable" />
+        <exclude name="ShortClassName" />
+        <exclude name="ShortVariable" />
+        <exclude name="SuspiciousConstantFieldName" />
+        <exclude name="ConfusingTernary" />
+        <exclude name="EmptyMethodInAbstractClassShouldBeAbstract" />
     </rule>
-
-    <rule ref="rulesets/java/clone.xml" />
-
-    <rule ref="rulesets/java/codesize.xml">
+    <rule ref="category/java/design.xml">
+        <exclude name="AvoidCatchingGenericException" />
+        <exclude name="CollapsibleIfStatements" />
         <exclude name="StdCyclomaticComplexity" />
         <exclude name="ModifiedCyclomaticComplexity" />
+        <exclude name="ExcessiveImports" />
+        <exclude name="LawOfDemeter" />
+        <exclude name="LoosePackageCoupling" />
+        <exclude name="ImmutableField" />
+        <exclude name="GodClass" />
+        <exclude name="SingularField" />
+        <exclude name="UselessOverridingMethod" />
     </rule>
-    <rule ref="rulesets/java/codesize.xml/CyclomaticComplexity">
+    <rule ref="category/java/performance.xml">
+        <exclude name="TooFewBranchesForASwitchStatement" />
+    </rule>
+    <rule ref="category/java/documentation.xml">
+        <exclude name="CommentRequired" />
+        <exclude name="CommentSize" />
+        <exclude name="UncommentedEmptyMethodBody" />
+    </rule>
+
+    <rule ref="category/java/design.xml/CyclomaticComplexity">
         <properties>
             <property name="reportLevel" value="20" />
         </properties>
     </rule>
-    <rule ref="rulesets/java/codesize.xml/TooManyMethods">
+    <rule ref="category/java/codestyle.xml/VariableNamingConventions">
+        <properties>
+            <property name="staticPrefix" value="s" />
+            <property name="memberPrefix" value="m" />
+        </properties>
+    </rule>
+    <rule ref="category/java/design.xml/TooManyMethods">
         <properties>
             <property name="maxmethods" value="25" />
         </properties>
     </rule>
-
-    <rule ref="rulesets/java/comments.xml">
-        <exclude name="CommentRequired" />
-        <exclude name="CommentSize" />
-        <exclude name="CommentDefaultAccessModifier" />
-    </rule>
-
-    <rule ref="rulesets/java/controversial.xml">
-        <!-- while ((x = update()) != null) { process(x); } -->
-        <exclude name="AssignmentInOperand" />
-        <exclude name="AtLeastOneConstructor" />
-        <exclude name="AvoidLiteralsInIfCondition" />
-        <exclude name="AvoidPrefixingMethodParameters" />
-        <exclude name="DataflowAnomalyAnalysis" />
-        <exclude name="NullAssignment" />
-        <exclude name="OnlyOneReturn" />
-        <exclude name="DefaultPackage" />
-        <exclude name="AvoidFinalLocalVariable" />
-        <exclude name="UseConcurrentHashMap" />
-    </rule>
-
-    <rule ref="rulesets/java/coupling.xml">
-        <exclude name="LooseCoupling" />
-        <exclude name="ExcessiveImports" />
-        <exclude name="LawOfDemeter" />
-        <exclude name="LoosePackageCoupling" />
-    </rule>
-
-    <rule ref="rulesets/java/design.xml">
-        <exclude name="AvoidReassigningParameters" />
-        <!-- if (x != y) { short code block } else { long code block } -->
-        <exclude name="ConfusingTernary" />
-        <exclude name="SwitchStmtsShouldHaveDefault" />
-        <!-- Android listeners contain a lot of such switch statements -->
-        <exclude name="TooFewBranchesForASwitchStatement" />
-        <exclude name="ImmutableField" />
-        <exclude name="GodClass" />
-        <exclude name="SingularField" />
-        <exclude name="UncommentedEmptyMethodBody" />
-        <exclude name="EmptyMethodInAbstractClassShouldBeAbstract" />
-    </rule>
-
-    <rule ref="rulesets/java/empty.xml" />
-
-    <rule ref="rulesets/java/finalizers.xml" />
-
-    <rule ref="rulesets/java/imports.xml" />
-
-    <rule ref="rulesets/java/junit.xml" />
-
-    <rule ref="rulesets/java/logging-jakarta-commons.xml">
-        <exclude name="GuardDebugLogging" />
-    </rule>
-
-    <rule ref="rulesets/java/logging-java.xml"/>
-
-    <rule ref="rulesets/java/migrating.xml" />
-
-    <rule ref="rulesets/java/naming.xml">
-        <exclude name="AbstractNaming" />
-        <exclude name="AvoidFieldNameMatchingMethodName" />
-        <exclude name="LongVariable" />
-        <exclude name="ShortClassName" />
-        <exclude name="SuspiciousConstantFieldName" />
-        <exclude name="ShortVariable" />
-        <exclude name="VariableNamingConventions" />
-    </rule>
-
-    <rule ref="rulesets/java/optimizations.xml">
-        <exclude name="AvoidInstantiatingObjectsInLoops" />
-        <exclude name="LocalVariableCouldBeFinal" />
-        <exclude name="MethodArgumentCouldBeFinal" />
-        <exclude name="RedundantFieldInitializer" />
-    </rule>
-
-    <rule ref="rulesets/java/strictexception.xml">
-        <exclude name="AvoidCatchingGenericException" />
-    </rule>
-
-    <rule ref="rulesets/java/strings.xml" />
-
-    <rule ref="rulesets/java/typeresolution.xml">
-        <exclude name="LooseCoupling" />
-    </rule>
-
-    <rule ref="rulesets/java/unnecessary.xml">
-        <exclude name="UselessOverridingMethod" />
-        <exclude name="UselessParentheses" />
-        <exclude name="UnnecessaryModifier" />
-    </rule>
-
-    <rule ref="rulesets/java/unusedcode.xml" />
-
 </ruleset>
