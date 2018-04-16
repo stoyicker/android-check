@@ -14,10 +14,6 @@ buildscript {
 apply plugin: 'com.android.application'
 apply plugin: 'org.stoyicker.android-check'
 
-configurations.all {
-    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
-    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
-}
 android {
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
@@ -43,7 +39,6 @@ repositories {
 }
 dependencies {
     implementation project(':libs:sample-java-library')
-    implementation 'org.slf4j:slf4j-api:1.7.12'
 }
 check {
     abortOnError false

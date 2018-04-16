@@ -1,4 +1,4 @@
-package example;
+package plugin.example;
 
 import java.lang.Object;
 
