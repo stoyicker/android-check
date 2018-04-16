@@ -1,3 +1,10 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
 apply plugin: 'java'
 
 sourceCompatibility = JavaVersion.VERSION_1_7

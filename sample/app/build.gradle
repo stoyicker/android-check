@@ -1,35 +1,52 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.1'
+        //noinspection GradleDynamicVersion
+        classpath 'org.stoyicker.android-check:plugin:+'
+    }
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'org.stoyicker.android-check'
 
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+}
 android {
-    compileSdkVersion 25
+    compileSdkVersion 27
     buildToolsVersion '27.0.3'
-
     defaultConfig {
         versionCode 1
         versionName '1.0'
         minSdkVersion 14
         targetSdkVersion 27
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
-
     lintOptions {
-        abortOnError false
+        abortOnError true
+        warningsAsErrors true
+        checkAllWarnings true
     }
 }
-
+repositories {
+    google()
+    jcenter()
+}
 dependencies {
     implementation project(':libs:sample-java-library')
     implementation 'org.slf4j:slf4j-api:1.7.12'
 }
-
 check {
-    abortOnError false
-
+    abortOnError true
     pmd {
         reportHTML new File(project.buildDir, 'reports/pmd/pmd.html')
     }
