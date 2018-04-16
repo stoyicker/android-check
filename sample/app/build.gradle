@@ -46,7 +46,7 @@ dependencies {
     implementation 'org.slf4j:slf4j-api:1.7.12'
 }
 check {
-    abortOnError true
+    abortOnError false
     pmd {
         reportHTML new File(project.buildDir, 'reports/pmd/pmd.html')
     }
