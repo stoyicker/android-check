@@ -9,6 +9,8 @@ This is a fork of [the original android-check plugin][1], which implements a rea
 Who uses this?
 ------------
 [![Schibsted Products & Technology](https://i.imgur.com/YwLGGgJ.png)](http://www.schibsted.com/en/About-Schibsted/Schibsted-Products-and-Technology/)
+[![China Euro Vehicle Technology](https://i.imgur.com/8OxYcwv.png)](http://www.cevt.se/)
+
 
 Build status
 ------------
