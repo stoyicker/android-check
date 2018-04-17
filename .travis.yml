@@ -14,7 +14,7 @@ before_install:
   - yes | sdkmanager "platforms;android-27"
   - printf "bintray.user=$BINTRAY_USER\nbintray.key=$BINTRAY_KEY\ngradle.publish.key=$GRADLE_PUBLISH_KEY\ngradle.publish.secret=$GRADLE_PUBLISH_SECRET\n" > gradle.properties
   - cd plugin
-  - ../gradlew publishToMavenLocal
+  - ./gradlew publishToMavenLocal
   - cd ..
 before_script:
   - |
@@ -24,13 +24,15 @@ before_script:
       fi
   - cd sample
 script:
-  - ../gradlew check --refresh-dependencies --rerun-tasks --stacktrace
+  - ./gradlew check --refresh-dependencies --rerun-tasks --stacktrace
 after_success:
   - cd ..
   - |
       if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then
         echo "CI on master succeded. Executing release tasks..."
         git fetch --unshallow
+        cd plugin
         ./gradlew bintrayUpload publishPlugins
-        ./plugin/ci/tag_release.sh
+        ./ci/tag_release.sh
+        cd ..
       fi
