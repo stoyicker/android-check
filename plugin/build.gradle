@@ -30,7 +30,7 @@ masterCommitCount = Integer.parseInt(masterCommitCount) + 62
 project.ext {
     plugin = 'org.stoyicker.android-check'
     name = 'Android Check Plugin 2'
-    description = 'Static code analysis plugin for Android and Java projects.'
+    description = 'Static code analysis plugin for Android projects.'
     groupId = 'org.stoyicker.android-check'
     artifactId = 'plugin'
     version = "2.$masterCommitCount"
