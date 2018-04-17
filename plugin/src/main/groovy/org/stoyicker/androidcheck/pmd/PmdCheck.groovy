@@ -8,6 +8,8 @@ import org.stoyicker.androidcheck.CommonConfig
 import net.sourceforge.pmd.ant.PMDTask
 import org.gradle.api.Project
 
+import java.nio.file.Paths
+
 class PmdCheck extends CommonCheck {
 
     PmdCheck() { super('pmd', 'androidPmd', 'Runs Android PMD') }
@@ -20,6 +22,7 @@ class PmdCheck extends CommonCheck {
                                 File configFile, File xmlReportFile) {
         PMDTask pmdTask = new PMDTask()
 
+        pmdTask.setCacheLocation(Paths.get(project.buildDir.absolutePath, "pmd-cache").toFile().absolutePath)
         pmdTask.project = project.ant.antProject
         pmdTask.ruleSetFiles = configFile.toString()
         pmdTask.addFormatter(new Formatter(type: 'xml', toFile: xmlReportFile))

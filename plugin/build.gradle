@@ -8,9 +8,18 @@ dependencies {
     implementation('com.puppycrawl.tools:checkstyle:8.9') {
         exclude module: 'guava'
     }
-    implementation "com.google.guava:guava:22.0"
+    implementation('com.google.guava:guava:22.0')
+
     // PMD
-    implementation 'net.sourceforge.pmd:pmd-java:6.2.0'
+    implementation('net.sourceforge.pmd:pmd-java:6.2.0') {
+        transitive = false
+    }
+    implementation('net.sourceforge.pmd:pmd-core:6.2.0') {
+        transitive = false
+    }
+    implementation 'org.apache.commons:commons-lang3:3.7'
+    implementation 'jaxen:jaxen:1.1.6'
+    implementation 'net.sourceforge.saxon:saxon:9.1.0.8'
 }
 
 def masterCommitCount = 'git rev-list --count HEAD'.execute([], project.rootDir).text.trim()
