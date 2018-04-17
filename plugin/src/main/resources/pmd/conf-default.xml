@@ -60,7 +60,7 @@
 
     <rule ref="category/java/design.xml/CyclomaticComplexity">
         <properties>
-            <property name="reportLevel" value="20" />
+            <property name="methodReportLevel" value="20" />
         </properties>
     </rule>
     <rule ref="category/java/codestyle.xml/VariableNamingConventions">
