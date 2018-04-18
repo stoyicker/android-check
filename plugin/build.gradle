@@ -12,10 +12,12 @@ dependencies {
 
     // PMD
     compile('net.sourceforge.pmd:pmd-java:6.2.0') {
-        transitive = false
+        // transitive = false won't have the correct effect on the POM uploaded to the plugin portal, even though it works locally
+        exclude module: "*"
     }
     compile('net.sourceforge.pmd:pmd-core:6.2.0') {
-        transitive = false
+        // transitive = false won't have the correct effect on the POM uploaded to the plugin portal, even though it works locally
+        exclude module: "*"
     }
     compile 'org.apache.commons:commons-lang3:3.7'
     compile 'jaxen:jaxen:1.1.6'
