@@ -16,6 +16,8 @@
         <exclude name="LooseCoupling" />
         <exclude name="GuardLogStatement" />
         <exclude name="LooseCoupling" />
+        <exclude name="JUnitTestsShouldIncludeAssert" />
+        <exclude name="AccessorMethodGeneration" />
     </rule>
     <rule ref="category/java/multithreading.xml">
         <exclude name="UseConcurrentHashMap" />
@@ -37,6 +39,7 @@
         <exclude name="SuspiciousConstantFieldName" />
         <exclude name="ConfusingTernary" />
         <exclude name="EmptyMethodInAbstractClassShouldBeAbstract" />
+        <exclude name="TooManyStaticImports" />
     </rule>
     <rule ref="category/java/design.xml">
         <exclude name="AvoidCatchingGenericException" />
@@ -51,6 +54,7 @@
         <exclude name="GodClass" />
         <exclude name="SingularField" />
         <exclude name="UselessOverridingMethod" />
+        <exclude name="UseUtilityClass" />
     </rule>
     <rule ref="category/java/performance.xml">
         <exclude name="TooFewBranchesForASwitchStatement" />
