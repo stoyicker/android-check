@@ -6,22 +6,19 @@ dependencies {
     compileOnly gradleApi()
     // Checkstyle
     compile('com.puppycrawl.tools:checkstyle:8.9') {
-        exclude module: 'guava'
+        exclude module: "guava"
+        exclude module: "commons-logging"
     }
-    compile('com.google.guava:guava:22.0')
-
     // PMD
     compile('net.sourceforge.pmd:pmd-java:6.2.0') {
-        // transitive = false won't have the correct effect on the POM uploaded to the plugin portal, even though it works locally
-        exclude module: "*"
+        exclude module: "asm"
+        exclude module: "gson"
     }
-    compile('net.sourceforge.pmd:pmd-core:6.2.0') {
-        // transitive = false won't have the correct effect on the POM uploaded to the plugin portal, even though it works locally
-        exclude module: "*"
-    }
-    compile 'org.apache.commons:commons-lang3:3.7'
-    compile 'jaxen:jaxen:1.1.6'
-    compile 'net.sourceforge.saxon:saxon:9.1.0.8'
+    // The following dependencies need to be respected with regards to the version that lint brings of them
+    compileOnly 'com.google.guava:guava:22.0'
+    compileOnly 'commons-logging:commons-logging:1.1.1'
+    compileOnly 'org.ow2.asm:asm:5.1'
+    compileOnly 'com.google.code.gson:gson:2.7'
 }
 
 def masterCommitCount = 'git rev-list --count HEAD'.execute([], project.rootDir).text.trim()
