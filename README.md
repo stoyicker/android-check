@@ -23,7 +23,19 @@ Usage
 
 [ ![Download](https://api.bintray.com/packages/stoyicker-org/android-check-2/org.stoyicker.android-check/images/download.svg) ](https://bintray.com/stoyicker-org/android-check-2/org.stoyicker.android-check/_latestVersion)
 
-This plugin is available in [the Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check) and jCenter. It attaches itself to the `check` task if it finds it (that is, you don't use the `plugins` block and you apply either the application or library Android plugins first) - otherwise you'll need to execute the corresponding tasks manually when desired: `androidCheckstyle` for CheckStyle, and `androidPmd` for PMD.
+This plugin is available in [the Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check) and jCenter. It attaches itself to the `check` task, but you can also execute the corresponding tasks manually when desired: `androidCheckstyle` for CheckStyle, and `androidPmd` for PMD.
+
+Apply the plugin after applying either com.android.application or com.android.library, and import the dependency like this or lint will break:
+
+```java
+classpath("org.stoyicker.android-check:plugin:2.221") {
+    // See https://github.com/gradle/gradle/issues/5092 for more information
+    exclude module: "asm"
+    exclude module: "gson"
+    exclude module: "guava"
+    exclude module: "commons-logging"
+}
+``` 
 
 Configuration
 -------------
