@@ -29,7 +29,6 @@ android {
     }
     lintOptions {
         abortOnError true
-        warningsAsErrors true
         checkAllWarnings true
     }
 }
