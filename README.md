@@ -28,12 +28,13 @@ This plugin is available in [the Gradle Plugin Portal](https://plugins.gradle.or
 Apply the plugin after applying either com.android.application or com.android.library, and import the dependency like this or lint will break:
 
 ```java
-classpath("org.stoyicker.android-check:plugin:2.221") {
-    // See https://github.com/gradle/gradle/issues/5092 for more information
+classpath("org.stoyicker.android-check:plugin:+") {
+    // If on Gradle < 4.8, add the following
     exclude module: "asm"
     exclude module: "gson"
     exclude module: "guava"
     exclude module: "commons-logging"
+    // See https://github.com/gradle/gradle/issues/5092 for more information
 }
 ``` 
 
