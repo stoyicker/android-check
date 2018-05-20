@@ -5,12 +5,12 @@ repositories { jcenter() }
 dependencies {
     compileOnly gradleApi()
     // Checkstyle
-    compile('com.puppycrawl.tools:checkstyle:8.9') {
+    compile('com.puppycrawl.tools:checkstyle:8.10') {
         exclude module: "guava"
         exclude module: "commons-logging"
     }
     // PMD
-    compile('net.sourceforge.pmd:pmd-java:6.2.0') {
+    compile('net.sourceforge.pmd:pmd-java:6.3.0') {
         exclude module: "asm"
         exclude module: "gson"
     }
