@@ -36,3 +36,5 @@ after_success:
         ./ci/tag_release.sh
         cd ..
       fi
+notifications:
+  email: false
