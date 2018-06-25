@@ -8,6 +8,7 @@ dependencies {
     compile('com.puppycrawl.tools:checkstyle:8.10.1') {
         exclude module: "guava"
         exclude module: "commons-logging"
+        exclude module: "Saxon-HE"
     }
     // PMD
     compile('net.sourceforge.pmd:pmd-java:6.4.0') {
