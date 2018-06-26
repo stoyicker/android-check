@@ -33,6 +33,8 @@ classpath("org.stoyicker.android-check:plugin:+") {
     exclude module: "gson"
     exclude module: "guava"
     exclude module: "commons-logging"
+    // This one is required because Checkstyle and PMD using different Saxon artifacts that have overlapping packages
+    // Also only required by Gradle < 4.8: https://github.com/gradle/gradle/issues/5092
     exclude module: "Saxon-HE"
 }
 ``` 
