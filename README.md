@@ -66,11 +66,11 @@ check {
     // Completely skip CheckStyle, default: false
     skip true/false
 
-    // Fails build if CheckStyle rule violation is found, default: false
+    // Fails build if CheckStyle rule violations are found, default: false
     abortOnError true/false
 
     // Configuration file for CheckStyle, default: <project_path>/config/checkstyle.xml, if non-existent then <project_path>/<module_path>/config/checkstyle.xml, if non-existent then plugin/src/main/resources/checkstyle/conf-default.xml
-    config 'path/to/checkstyle.xml'
+    config 'path/to/config.xml'
 
     // Output file for XML reports, default: new File(project.buildDir, 'outputs/checkstyle/checkstyle.xml')
     reportXML new File(project.buildDir, 'path/where/you/want/checkstyle.xml')
@@ -80,10 +80,14 @@ check {
   }
   // PMD configuration
   pmd {
-    // Same options as Checkstyle, except for a couple of defaults:
+    // Completely skip PMD, default: false
+    skip true/false
 
-    // Configuration file for CheckStyle, default: <project_path>/config/pmd.xml, if non-existent then <project_path>/<module_path>/config/pmd.xml, if non-existent then plugin/src/main/resources/pmd/conf-default.xml
-    config 'path/to/pmd.xml'
+    // Fails build if PMD rule violations are found, default: false
+    abortOnError true/false
+
+    // Configuration file for PMD, default: <project_path>/config/pmd.xml, if non-existent then <project_path>/<module_path>/config/pmd.xml, if non-existent then plugin/src/main/resources/pmd/conf-default.xml
+    config 'path/to/config.xml'
 
     // Output file for XML reports, default: new File(project.buildDir, 'outputs/pmd/pmd.xml')
     reportXML new File(project.buildDir, 'path/where/you/want/pmd.xml')
