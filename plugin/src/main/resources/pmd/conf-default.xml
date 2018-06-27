@@ -11,6 +11,7 @@
         <exclude name="BeanMembersShouldSerialize" />
         <exclude name="AvoidLiteralsInIfCondition" />
         <exclude name="DataflowAnomalyAnalysis" />
+        <exclude name="UseProperClassLoader" />
     </rule>
     <rule ref="category/java/bestpractices.xml">
         <exclude name="LooseCoupling" />
