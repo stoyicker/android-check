@@ -81,4 +81,9 @@
             <property name="maxmethods" value="25" />
         </properties>
     </rule>
+    <rule ref="category/java/codestyle.xml/ClassNamingConventions">
+        <properties>
+            <property name="utilityClassPattern" value="[A-Z][a-zA-Z]+"/>
+        </properties>
+    </rule>
 </ruleset>
