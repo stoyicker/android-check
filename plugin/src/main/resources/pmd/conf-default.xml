@@ -18,6 +18,7 @@
         <exclude name="GuardLogStatement" />
         <exclude name="LooseCoupling" />
         <exclude name="JUnitTestsShouldIncludeAssert" />
+        <exclude name="JUnitTestContainsTooManyAsserts" />
         <exclude name="AccessorMethodGeneration" />
     </rule>
     <rule ref="category/java/multithreading.xml">
