@@ -11,7 +11,7 @@ dependencies {
         exclude module: "Saxon-HE"
     }
     // PMD
-    compile('net.sourceforge.pmd:pmd-java:6.4.0') {
+    compile('net.sourceforge.pmd:pmd-java:6.7.0') {
         exclude module: "asm"
         exclude module: "gson"
     }
