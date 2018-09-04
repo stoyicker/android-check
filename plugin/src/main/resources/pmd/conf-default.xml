@@ -20,6 +20,7 @@
         <exclude name="JUnitTestsShouldIncludeAssert" />
         <exclude name="JUnitTestContainsTooManyAsserts" />
         <exclude name="AccessorMethodGeneration" />
+        <exclude name="JUnitAssertionsShouldIncludeMessage" />
     </rule>
     <rule ref="category/java/multithreading.xml">
         <exclude name="UseConcurrentHashMap" />
