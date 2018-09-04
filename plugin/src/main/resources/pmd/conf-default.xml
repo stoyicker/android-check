@@ -45,7 +45,6 @@
         <exclude name="TooManyStaticImports" />
     </rule>
     <rule ref="category/java/design.xml">
-        <exclude name="AvoidCatchingGenericException" />
         <exclude name="CollapsibleIfStatements" />
         <exclude name="StdCyclomaticComplexity" />
         <exclude name="ModifiedCyclomaticComplexity" />
