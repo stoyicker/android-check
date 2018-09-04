@@ -21,6 +21,8 @@
     </module>
 
     <module name="TreeWalker">
+        
+        <module name="IllegalCatch"/>
 
         <module name="SuppressionCommentFilter"/>
 
