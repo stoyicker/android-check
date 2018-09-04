@@ -204,7 +204,7 @@
         </module>
         -->
         <module name="EmptyCatchBlock">
-            <property name="exceptionVariableName" value="expected"/>
+            <property name="exceptionVariableName" value="ignored"/>
         </module>
         <module name="CommentsIndentation"/>
     </module>
