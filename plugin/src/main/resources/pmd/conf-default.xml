@@ -73,10 +73,11 @@
             <property name="methodReportLevel" value="20" />
         </properties>
     </rule>
-    <rule ref="category/java/codestyle.xml/VariableNamingConventions">
+    <rule ref="category/java/codestyle.xml/FieldNamingConventions">
         <properties>
-            <property name="staticPrefix" value="s" />
-            <property name="memberPrefix" value="m" />
+            <property name="defaultFieldPattern" value="m[a-zA-Z0-9]*" />
+            <property name="finalFieldPattern" value="m[a-zA-Z0-9]*" />
+            <property name="staticFieldPattern" value="s[a-zA-Z0-9]*" />
         </properties>
     </rule>
     <rule ref="category/java/design.xml/TooManyMethods">
