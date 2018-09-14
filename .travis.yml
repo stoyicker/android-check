@@ -11,6 +11,7 @@ android:
     - android-27
     - build-tools-27.0.3
 before_install:
+  - cd .. && mv android-check-2 android-check && cd android-check # Required by the release plugin since Gradle 4.8
   - yes | sdkmanager "platforms;android-27"
   - printf "bintray.user=$BINTRAY_USER\nbintray.key=$BINTRAY_KEY\ngradle.publish.key=$GRADLE_PUBLISH_KEY\ngradle.publish.secret=$GRADLE_PUBLISH_SECRET\n" > plugin/gradle.properties
   - cd plugin
