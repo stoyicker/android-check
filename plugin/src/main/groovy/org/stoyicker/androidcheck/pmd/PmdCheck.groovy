@@ -22,7 +22,7 @@ class PmdCheck extends CommonCheck {
                                 File configFile, File xmlReportFile) {
         PMDTask pmdTask = new PMDTask()
 
-        pmdTask.cacheLocation = new File(".")
+        pmdTask.cacheLocation = new File(".pmdCache")
         pmdTask.project = project.ant.antProject
         pmdTask.ruleSetFiles = configFile.toString()
         pmdTask.addFormatter(new Formatter(type: 'xml', toFile: xmlReportFile))
