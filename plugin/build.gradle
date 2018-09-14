@@ -78,5 +78,9 @@ project.ext {
     }
 }
 
+groupId = project.ext.groupId
+artifactId = project.ext.artifactId
+version = project.ext.version
+
 apply from: project.file('ci/gradle-publish.gradle')
 apply from: project.file('ci/publish.gradle')
