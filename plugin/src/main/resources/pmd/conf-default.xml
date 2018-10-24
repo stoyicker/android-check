@@ -52,6 +52,11 @@
         <exclude name="ModifiedCyclomaticComplexity" />
         <exclude name="NcssCount" />
         <exclude name="ExcessiveImports" />
+        <exclude name="ExcessiveMethodLength">
+	        <properties>
+                <property name="IgnoreJUnitCompletely" value="true" />
+    	    </properties>
+	     </exclude>
         <exclude name="LawOfDemeter" />
         <exclude name="LoosePackageCoupling" />
         <exclude name="ImmutableField" />
