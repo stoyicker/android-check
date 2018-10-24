@@ -53,10 +53,10 @@
         <exclude name="NcssCount" />
         <exclude name="ExcessiveImports" />
         <exclude name="ExcessiveMethodLength">
-	        <properties>
+	    <properties>
                 <property name="IgnoreJUnitCompletely" value="true" />
     	    </properties>
-	     </exclude>
+	</exclude>
         <exclude name="LawOfDemeter" />
         <exclude name="LoosePackageCoupling" />
         <exclude name="ImmutableField" />
