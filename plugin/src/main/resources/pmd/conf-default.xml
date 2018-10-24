@@ -56,7 +56,7 @@
 	    <properties>
                 <property name="IgnoreJUnitCompletely" value="true" />
     	    </properties>
-	</exclude>
+        </exclude>
         <exclude name="LawOfDemeter" />
         <exclude name="LoosePackageCoupling" />
         <exclude name="ImmutableField" />
