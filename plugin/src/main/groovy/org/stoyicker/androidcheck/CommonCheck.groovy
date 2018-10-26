@@ -79,10 +79,13 @@ abstract class CommonCheck<Config extends CommonConfig> {
             }
         }
 
-        if(target.tasks.find({ it.name == 'check'}) != null) {
-            target.tasks.getByName('check').dependsOn taskName
-        } else {
-            target.logger.warn "task check not found in project $target.name. You may need to run the plugin tasks manually"
+        target.afterEvaluate {
+            if (target.tasks.find({ it.name == 'check' }) != null) {
+                target.tasks.getByName('check').dependsOn taskName
+            } else {
+                target.logger.warn
+                "task check not found in project $target.name. You may need to run the plugin tasks manually"
+            }
         }
         dependencies.each { target.tasks.getByName(taskName).dependsOn it }
     }
