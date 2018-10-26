@@ -9,7 +9,7 @@ android:
     - tools
     - platform-tools
     - android-27
-    - build-tools-27.0.3
+    - build-tools-28.0.3
 before_install:
   - cd .. && mv android-check-2 android-check && cd android-check # Required by the release plugin since Gradle 4.8
   - yes | sdkmanager "platforms;android-27"
