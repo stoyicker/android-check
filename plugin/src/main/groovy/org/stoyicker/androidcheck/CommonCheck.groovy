@@ -73,7 +73,7 @@ abstract class CommonCheck<Config extends CommonConfig> {
                         }
                         throw new GradleException(errorMessage)
                     } else {
-                        target.logger.warn errorMessage
+                        System.err.println(errorMessage)
                     }
                 }
             }
