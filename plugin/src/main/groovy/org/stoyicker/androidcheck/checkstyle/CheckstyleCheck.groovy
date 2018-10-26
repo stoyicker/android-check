@@ -44,6 +44,6 @@ class CheckstyleCheck extends CommonCheck {
     protected String getErrorMessage(int errorCount, File htmlReportFile) {
         def reportPath = htmlReportFile.toURI()
         return "$errorCount Checkstyle rule violations were found. See the report at: " +
-                """'\\e]8;;""" + reportPath + """\\e\\\\""" + reportPath + """\\e]8;;\\e\\\\'"""
+                """\\e]8;;""" + reportPath + """\\e\\\\""" + reportPath + """\\e]8;;\\e\\\\"""
     }
 }
