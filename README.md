@@ -23,27 +23,78 @@ Usage
 
 [ ![Download](https://api.bintray.com/packages/stoyicker-org/android-check-2/org.stoyicker.android-check/images/download.svg) ](https://bintray.com/stoyicker-org/android-check-2/org.stoyicker.android-check/_latestVersion)
 
-This plugin is available in [the Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check) and jCenter. It attaches itself to the `check` task, but you can also execute the corresponding tasks manually when desired: `androidCheckstyle` for CheckStyle, and `androidPmd` for PMD.
+This plugin is available in [the Gradle Plugin Portal](https://plugins.gradle.org/plugin/org.stoyicker.android-check). It attaches itself to the `check` task, but you can also execute the corresponding tasks manually when desired: `androidCheckstyle` for CheckStyle, and `androidPmd` for PMD.
 
-```java
-classpath("org.stoyicker.android-check:plugin:+") {
-    // These are to avoid some conflicts due to how classloading is performed by Gradle
-    // Only required by Gradle < 4.8: https://github.com/gradle/gradle/issues/5092
-    exclude module: "asm"
-    exclude module: "gson"
-    exclude module: "guava"
-    exclude module: "commons-logging"
-    // This one is required because Checkstyle and PMD using different Saxon artifacts that have overlapping packages
-    // Also only required by Gradle < 4.8: https://github.com/gradle/gradle/issues/5092
-    exclude module: "Saxon-HE"
+In order to add it to your project, you can use this snippet for Gradle 2.1 and later:
+<details open>
+<summary><b>Kotlin</b></summary>
+
+```kotlin
+plugins {
+  id("org.stoyicker.android-check") version "+"
 }
-``` 
+```
 
-Apply the plugin after applying either com.android.application or com.android.library.
+</details>
+<details>
+<summary><b>Groovy</b></summary>
 
-```java
+```groovy
+plugins {
+  id "org.stoyicker.android-check" version "+"
+}
+```
+
+</details>
+
+Or this one for older Gradle versions or where dynamic configuration is required:
+
+<details open>
+<summary><b>Kotlin</b></summary>
+
+```kotlin
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+      classpath("org.stoyicker.android-check:plugin:+")
+    }
+}
+
+// Place this line after applying an Android plugin such as com.android.application, com.android.library, com.android.test or com.android.feature
+apply(plugin = "org.stoyicker.android-check")
+```
+
+</details>
+<details>
+<summary><b>Groovy</b></summary>
+
+```groovy
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+      classpath("org.stoyicker.android-check:plugin:+") {
+        // These are to avoid some conflicts with the Android plugin due to how classloading is performed by Gradle
+        // Only required before Gradle 4.8: https://github.com/gradle/gradle/issues/5092
+        exclude module: "asm"
+        exclude module: "gson"
+        exclude module: "guava"
+        exclude module: "commons-logging"
+        // This one is required because Checkstyle and PMD use different Saxon artifacts that have overlapping packages
+        // Also only required before Gradle < 4.8
+        exclude module: "Saxon-HE"
+      }
+    }
+}
+
+// Place this line after applying an Android plugin such as com.android.application, com.android.library, com.android.test or com.android.feature
 apply plugin: "org.stoyicker.android-check"
 ```
+
+</details>
 
 Configuration
 -------------
@@ -59,8 +110,8 @@ The default one.
 check {
   // Do absolutely nothing, default: false
   skip true/false
-  // Fails build if a violation is found, default: true
-  abortOnError true/false. Ignored if all per-tool confs are set to abortOnError false (see below)
+  // Fails build if a violation is found, default: true. Ignored if all per-tool confs are set to abortOnError false (see below)
+  abortOnError true/false
   // Checkstyle configuration
   checkstyle {
     // Completely skip CheckStyle, default: false
