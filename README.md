@@ -3,6 +3,7 @@ Android Check 2
 
 Static code analysis plugin for Android projects.
 This is a fork of [the original android-check plugin][1], which implements a really useful concept, but unfortunately seems abandoned.
+Works for application, library and feature modules.
 
 *Current version tested with Android plugin for Gradle 3.1.3*.
 
@@ -62,7 +63,6 @@ buildscript {
     }
 }
 
-// Place this line after applying an Android plugin such as com.android.application, com.android.library, com.android.test or com.android.feature
 apply(plugin = "org.stoyicker.android-check")
 ```
 
@@ -90,7 +90,6 @@ buildscript {
     }
 }
 
-// Place this line after applying an Android plugin such as com.android.application, com.android.library, com.android.test or com.android.feature
 apply plugin: "org.stoyicker.android-check"
 ```
 
