@@ -40,8 +40,8 @@ dependencies {
     implementation project(':libs:sample-java-library')
 }
 check {
-    abortOnError false
+    abortOnError(false)
     pmd {
-        reportHTML new File(project.buildDir, 'reports/pmd/pmd.html')
+        reportHTML(new File(project.buildDir, "reports/pmd/pmd.html"))
     }
 }
