@@ -11,11 +11,11 @@ class CommonConfig {
         this.project = project
     }
 
-    Boolean skip = null
+    private Boolean skip = null
 
     void skip(boolean skip) { this.skip = skip }
 
-    Boolean abortOnError = null
+    private Boolean abortOnError = null
 
     void abortOnError(boolean abortOnError) { this.abortOnError = abortOnError }
 
@@ -42,8 +42,8 @@ class CommonConfig {
         config(project.file(path))
     }
 
-    File reportXML
-    File reportHTML
+    private File reportXML
+    private File reportHTML
 
     void reportXML(File reportXML) {
         this.reportXML = reportXML

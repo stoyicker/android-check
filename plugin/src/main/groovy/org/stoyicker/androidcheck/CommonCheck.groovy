@@ -44,8 +44,8 @@ abstract class CommonCheck<Config extends CommonConfig> {
             CheckExtension extension = target.extensions.findByType(CheckExtension)
             Config config = getConfig(extension)
 
-            boolean skip = config.resolveSkip(extension.skip)
-            boolean abortOnError = config.resolveAbortOnError(extension.abortOnError)
+            boolean skip = config.resolveSkip(extension.getSkip())
+            boolean abortOnError = config.resolveAbortOnError(extension.getAbortOnError())
             File configFile = config.resolveConfigFile(taskCode)
             File styleFile = config.resolveStyleFile(taskCode)
             File xmlReportFile = config.resolveXmlReportFile(taskCode)
