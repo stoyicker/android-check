@@ -104,49 +104,86 @@ The default one.
 
 ### Customized
 
-```java
+<details open>
+<summary><b>Kotlin</b></summary>
+
+```kotlin
 // Configuration is completely optional, defaults will be used if not present
 check {
   // Do absolutely nothing, default: false
-  skip true/false
+  skip(true/false)
   // Fails build if a violation is found, default: true. Ignored if all per-tool confs are set to abortOnError false (see below)
-  abortOnError true/false
+  abortOnError(true/false)
   // Checkstyle configuration
   checkstyle {
-    // Completely skip CheckStyle, default: false
-    skip true/false
-
-    // Fails build if CheckStyle rule violations are found, default: false
-    abortOnError true/false
-
-    // Configuration file for CheckStyle, default: <project_path>/config/checkstyle.xml, if non-existent then <project_path>/<module_path>/config/checkstyle.xml, if non-existent then plugin/src/main/resources/checkstyle/conf-default.xml
-    config 'path/to/config.xml'
-
-    // Output file for XML reports, default: new File(project.buildDir, 'outputs/checkstyle/checkstyle.xml')
-    reportXML new File(project.buildDir, 'path/where/you/want/checkstyle.xml')
-
-    // Output file for HTML reports, default: new File(project.buildDir, 'outputs/checkstyle/checkstyle.html')
-    reportHTML new File(project.buildDir, 'path/where/you/want/checkstyle.html')
+    // Completely skip Checkstyle, default: false
+    skip(true/false)
+    // Fails build if Checkstyle rule violations are found, default: false
+    abortOnError(true/false)
+    // Configuration file for Checkstyle, default: <project_path>/config/checkstyle.xml, if non-existent then <project_path>/<module_path>/config/checkstyle.xml, if non-existent then plugin/src/main/resources/checkstyle/conf-default.xml
+    config("path/to/config.xml")
+    // Output file for XML reports, default: File(project.buildDir, "outputs/checkstyle/checkstyle.xml")
+    reportXML(File(project.buildDir, "path/where/you/want/checkstyle.xml"))
+    // Output file for HTML reports, default: File(project.buildDir, "outputs/checkstyle/checkstyle.html")
+    reportHTML(File(project.buildDir, "path/where/you/want/checkstyle.html"))
   }
   // PMD configuration
   pmd {
     // Completely skip PMD, default: false
-    skip true/false
-
+    skip(true/false)
     // Fails build if PMD rule violations are found, default: false
-    abortOnError true/false
-
+    abortOnError(true/false)
     // Configuration file for PMD, default: <project_path>/config/pmd.xml, if non-existent then <project_path>/<module_path>/config/pmd.xml, if non-existent then plugin/src/main/resources/pmd/conf-default.xml
-    config 'path/to/config.xml'
-
-    // Output file for XML reports, default: new File(project.buildDir, 'outputs/pmd/pmd.xml')
-    reportXML new File(project.buildDir, 'path/where/you/want/pmd.xml')
-    
-    // Output file for HTML reports, default: new File(project.buildDir, 'outputs/pmd/pmd.html')
-    reportHTML new File(project.buildDir, 'path/where/you/want/pmd.html')
+    config("path/to/config.xml")
+    // Output file for XML reports, default: File(project.buildDir, "outputs/pmd/pmd.xml")
+    reportXML(File(project.buildDir, "path/where/you/want/pmd.xml"))
+    // Output file for HTML reports, default: File(project.buildDir, "outputs/pmd/pmd.html")
+    reportHTML(File(project.buildDir, "path/where/you/want/pmd.html"))
   }
 }
 ```
+
+</details>
+<details>
+<summary><b>Groovy</b></summary>
+
+```groovy
+// Configuration is completely optional, defaults will be used if not present
+check {
+  // Do absolutely nothing, default: false
+  skip(true/false)
+  // Fails build if a violation is found, default: true. Ignored if all per-tool confs are set to abortOnError false (see below)
+  abortOnError(true/false)
+  // Checkstyle configuration
+  checkstyle {
+    // Completely skip Checkstyle, default: false
+    skip(true/false)
+    // Fails build if Checkstyle rule violations are found, default: false
+    abortOnError(true/false)
+    // Configuration file for Checkstyle, default: <project_path>/config/checkstyle.xml, if non-existent then <project_path>/<module_path>/config/checkstyle.xml, if non-existent then plugin/src/main/resources/checkstyle/conf-default.xml
+    config("path/to/config.xml")
+    // Output file for XML reports, default: new File(project.buildDir, "outputs/checkstyle/checkstyle.xml")
+    reportXML(new File(project.buildDir, "path/where/you/want/checkstyle.xml"))
+    // Output file for HTML reports, default: new File(project.buildDir, "outputs/checkstyle/checkstyle.html")
+    reportHTML(new File(project.buildDir, "path/where/you/want/checkstyle.html"))
+  }
+  // PMD configuration
+  pmd {
+    // Completely skip PMD, default: false
+    skip(true/false)
+    // Fails build if PMD rule violations are found, default: false
+    abortOnError(true/false)
+    // Configuration file for PMD, default: <project_path>/config/pmd.xml, if non-existent then <project_path>/<module_path>/config/pmd.xml, if non-existent then plugin/src/main/resources/pmd/conf-default.xml
+    config("path/to/config.xml")
+    // Output file for XML reports, default: new File(project.buildDir, "outputs/pmd/pmd.xml")
+    reportXML(new File(project.buildDir, "path/where/you/want/pmd.xml"))
+    // Output file for HTML reports, default: new File(project.buildDir, "outputs/pmd/pmd.html")
+    reportHTML(new File(project.buildDir, "path/where/you/want/pmd.html"))
+  }
+}
+```
+
+</details>
 
 Also, if `abortOnError` is `true`, the browser will open the report for the tool that caused the failure (if your system supports it).
 
