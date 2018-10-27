@@ -25,12 +25,19 @@ class CheckExtension {
         this.pmd = new PmdConfig(project)
     }
 
-    boolean skip = false
+    private boolean skip = false
 
     void skip(boolean skip) { this.skip = skip }
 
-    boolean abortOnError = true
+    Boolean getSkip() {
+        return skip
+    }
+
+    private boolean abortOnError = true
 
     void abortOnError(boolean abortOnError) { this.abortOnError = abortOnError }
 
+    boolean getAbortOnError() {
+        return abortOnError
+    }
 }
