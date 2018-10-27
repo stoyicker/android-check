@@ -53,7 +53,7 @@ abstract class CommonCheck<Config extends CommonConfig> {
             List<File> sources = config.getAndroidSources()
 
             if (skip) {
-                target.logger.warn "skip $taskName"
+                target.logger.warn "Skipping $taskName"
             } else {
                 xmlReportFile.parentFile.mkdirs()
                 performCheck(target, sources, configFile, xmlReportFile)
