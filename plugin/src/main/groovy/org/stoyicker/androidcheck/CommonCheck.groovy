@@ -18,6 +18,18 @@ abstract class CommonCheck<Config extends CommonConfig> {
         this.taskDescription = taskDescription
     }
 
+    private static enum OsType {
+        TYPE_LINUX("xdg-open %s"),
+        TYPE_WINDOWS("start microsoft-edge:%s"),
+        TYPE_MAC_OS("open %s")
+
+        private String mCmdReplacement
+
+        OsType(String cmdReplacement) {
+            mCmdReplacement = cmdReplacement
+        }
+    }
+
     protected Set<String> getDependencies() { [] }
 
     protected abstract Config getConfig(CheckExtension extension)
@@ -64,12 +76,27 @@ abstract class CommonCheck<Config extends CommonConfig> {
                 if (errorCount) {
                     String errorMessage = getErrorMessage(errorCount, htmlReportFile)
                     if (abortOnError) {
+                        final String path = "file://" + htmlReportFile.absolutePath
                         if (Desktop.isDesktopSupported()) {
-                            Desktop.getDesktop().browse(new URI("file://"+htmlReportFile.absolutePath))
+                            Desktop.getDesktop().browse(new URI(path))
                         } else {
-                            target.logger.warn "Your system does not support java.awt.Desktop. " +
-                            "Not opening report automatically. " +
-                            "See https://github.com/stoyicker/android-check-2/issues/42"
+                            final String osName = System.getProperty("os.name")
+                            final String osNameMatch = osName.toLowerCase(Locale.ENGLISH)
+                            final OsType osType
+                            if(osNameMatch.contains("linux")) {
+                                osType = OsType.TYPE_LINUX
+                            } else if(osNameMatch.contains("windows")) {
+                                osType = OsType.TYPE_WINDOWS
+                            } else if(osNameMatch.contains("mac os") || osNameMatch.contains("macos") || osNameMatch.contains("darwin")) {
+                                osType = OsType.TYPE_MAC_OS
+                            } else {
+                                target.logger.warn "Your system was not identified as able to auto-open the report. " +
+                                        "Please open an issue at https://github.com/stoyicker/android-check-2/issues/"
+                                osType = null
+                            }
+                            if (osType != null) {
+                                Runtime.getRuntime().exec(String.format(osType.mCmdReplacement, path, Locale.ENGLISH))
+                            }
                         }
                         throw new GradleException(errorMessage)
                     } else {
