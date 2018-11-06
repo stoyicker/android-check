@@ -5,7 +5,7 @@ repositories { jcenter() }
 dependencies {
     compileOnly gradleApi()
     // Checkstyle
-    implementation('com.puppycrawl.tools:checkstyle:8.12') {
+    implementation('com.puppycrawl.tools:checkstyle:8.14') {
         exclude module: "guava"
         exclude module: "commons-logging"
         exclude module: "Saxon-HE"
