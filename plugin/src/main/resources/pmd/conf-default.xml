@@ -58,6 +58,16 @@
                 <property name="IgnoreJUnitCompletely" value="true" />
     	    </properties>
         </rule>
+        <rule name="SignatureDeclareThrowsException">
+	    <properties>
+                <property name="IgnoreJUnitCompletely" value="true" />
+    	    </properties>
+        </rule>
+        <rule name="AvoidCatchingGenericException">
+	    <properties>
+                <property name="IgnoreJUnitCompletely" value="true" />
+    	    </properties>
+        </rule>
         <exclude name="LawOfDemeter" />
         <exclude name="LoosePackageCoupling" />
         <exclude name="ImmutableField" />
