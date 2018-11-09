@@ -53,21 +53,7 @@
         <exclude name="ModifiedCyclomaticComplexity" />
         <exclude name="NcssCount" />
         <exclude name="ExcessiveImports" />
-        <rule name="ExcessiveMethodLength">
-	    <properties>
-                <property name="IgnoreJUnitCompletely" value="true" />
-    	    </properties>
-        </rule>
-        <rule name="SignatureDeclareThrowsException">
-	    <properties>
-                <property name="IgnoreJUnitCompletely" value="true" />
-    	    </properties>
-        </rule>
-        <rule name="AvoidCatchingGenericException">
-	    <properties>
-                <property name="IgnoreJUnitCompletely" value="true" />
-    	    </properties>
-        </rule>
+        <exclude name="ExcessiveMethodLength" />
         <exclude name="LawOfDemeter" />
         <exclude name="LoosePackageCoupling" />
         <exclude name="ImmutableField" />
@@ -75,6 +61,11 @@
         <exclude name="SingularField" />
         <exclude name="UselessOverridingMethod" />
         <exclude name="UseUtilityClass" />
+    </rule>
+    <rule ref="category/java/design.xml/SignatureDeclareThrowsException">
+        <properties>
+	    <property name="IgnoreJUnitCompletely" value="true" />
+        </properties>
     </rule>
     <rule ref="category/java/performance.xml">
         <exclude name="TooFewBranchesForASwitchStatement" />
